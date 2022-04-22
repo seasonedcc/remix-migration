@@ -1,0 +1,15 @@
+:concurrency: 2
+:retry: 60
+:max_retries: 3
+:queues:
+  - [highest, 10]
+  - [mailers, 7]
+  - [high, 6]
+  - [medium, 5]
+  - [low, 2]
+  - [lowest, 1]
+  - [default, 1]
+staging:
+  :concurrency: 3
+production:
+  :concurrency: 5

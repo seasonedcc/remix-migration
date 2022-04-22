@@ -1,0 +1,13 @@
+Description:
+    Pass the service object name, either
+    CamelCased or under_scored.
+
+     This generates a service class in app/services,
+    template engine, and test framework generators.
+
+Example:
+    rails generate service_object calculate_rent
+
+    calculate_rent Service Object:
+        app/services/calculate_rent.rb
+        spec/services/calculate_rent_spec.rb

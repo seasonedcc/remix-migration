@@ -1,0 +1,13 @@
+# frozen_string_literal: true
+
+class <%= service_object_name %>
+  def self.execute(**keywords, &block)
+    new(**keywords, &block).execute
+  end
+
+  def initialize(**keywords)
+  end
+
+  def execute
+  end
+end

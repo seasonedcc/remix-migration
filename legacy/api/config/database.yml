@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+  host: <%= ENV.fetch("POSTGRES_HOST") { nil } %>
+  username: <%= ENV.fetch("POSTGRES_USER") { nil } %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") { nil } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: legacy_app_development
+
+test:
+  <<: *default
+  database: legacy_app_test
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+  

@@ -1,0 +1,51 @@
+version: "3.4"
+
+services:
+  rails:
+    build: .
+    env_file:
+      - .env
+    command: bin/rails s -b '0.0.0.0'
+    volumes:
+      - ".:/app:cached"
+    links:
+      - postgres
+      - redis
+    ports:
+      - "3000:3000"
+    expose:
+      - "5000"
+    networks:
+      - internal_network
+    stdin_open: true
+    tty: true
+
+  postgres:
+    image: postgres:12.4-alpine
+    env_file:
+      - .env
+    volumes:
+      - ".:/app"
+    ports:
+      - "5432:5432"
+    expose:
+      - "5432"
+    networks:
+      - internal_network
+
+  redis:
+    image: "redis:4.0-alpine"
+    ports:
+      - "6379:6379"
+    expose:
+      - "6379"
+    volumes:
+      - "redis:/data"
+    networks:
+      - internal_network
+
+volumes:
+  redis:
+
+networks:
+  internal_network:

@@ -1,0 +1,13 @@
+{
+  "name": "legacy-api",
+  "engines": {
+    "node": "14.x"
+  },
+  "dependencies": {
+    "husky": "^3.0.0",
+    "mjml": "^4.5.1"
+  },
+  "scripts": {
+    "build": "npm install -g mjml@4.5.1"
+  }
+}

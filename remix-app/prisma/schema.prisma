@@ -1,0 +1,58 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["interactiveTransactions"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ar_internal_metadata {
+  key        String   @id @db.VarChar
+  value      String?  @db.VarChar
+  created_at DateTime @db.Timestamp(6)
+  updated_at DateTime @db.Timestamp(6)
+}
+
+model faqs {
+  id         BigInt   @id @default(autoincrement())
+  question   String   @db.VarChar
+  answer     String
+  sorting    Int?     @default(0)
+  created_at DateTime @db.Timestamp(6)
+  updated_at DateTime @db.Timestamp(6)
+}
+
+model schema_migrations {
+  version String @id @db.VarChar
+}
+
+model users {
+  id                     BigInt    @id @default(autoincrement())
+  provider               String    @default("email") @db.VarChar
+  uid                    String    @default("") @db.VarChar
+  encrypted_password     String    @default("") @db.VarChar
+  reset_password_token   String?   @unique(map: "index_users_on_reset_password_token") @db.VarChar
+  reset_password_sent_at DateTime? @db.Timestamp(6)
+  allow_password_change  Boolean?  @default(false)
+  remember_created_at    DateTime? @db.Timestamp(6)
+  sign_in_count          Int       @default(0)
+  current_sign_in_at     DateTime? @db.Timestamp(6)
+  last_sign_in_at        DateTime? @db.Timestamp(6)
+  current_sign_in_ip     String?   @db.VarChar
+  last_sign_in_ip        String?   @db.VarChar
+  confirmation_token     String?   @unique(map: "index_users_on_confirmation_token") @db.VarChar
+  confirmed_at           DateTime? @db.Timestamp(6)
+  confirmation_sent_at   DateTime? @db.Timestamp(6)
+  unconfirmed_email      String?   @db.VarChar
+  name                   String?   @db.VarChar
+  nickname               String?   @db.VarChar
+  image                  String?   @db.VarChar
+  email                  String    @unique(map: "index_users_on_email") @db.VarChar
+  tokens                 Json?     @db.Json
+  created_at             DateTime  @db.Timestamp(6)
+  updated_at             DateTime  @db.Timestamp(6)
+
+  @@unique([uid, provider], map: "index_users_on_uid_and_provider")
+}

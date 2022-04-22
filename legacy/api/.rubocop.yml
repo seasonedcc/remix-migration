@@ -1,0 +1,63 @@
+inherit_from: .rubocop_todo.yml
+
+require: rubocop-rspec
+
+AllCops:
+  NewCops: disable
+  SuggestExtensions: false
+
+  DisplayCopNames: true
+  Include:
+    - "**/*.rb"
+    - "**/Rakefile"
+    - "**/Gemfile"
+    - "**/config.ru"
+  Exclude:
+    - "bin/**/*"
+    - ".gems/**/*"
+    - "vendor/**/*"
+    - "db/schema.rb"
+    - "scripts/template.rb"
+    - "bin/*"
+    - "node_modules/**/*"
+    - "config"
+Documentation:
+  Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*.rb"
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+ImplicitSubject:
+  Enabled: false
+RSpec/InstanceVariable:
+  Enabled: false
+RSpec/DescribeClass:
+  Exclude:
+    - spec/tasks/*.rb
+RSpec/NestedGroups:
+  Max: 4
+Metrics/AbcSize:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Style/SymbolProc: # this will break code in some cases
+  Enabled: false
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - "db/migrate/*"
+    - "spec/**/*.rb"
+Metrics/ParameterLists:
+  Severity: refactor
+RSpec/AnyInstance:
+  Severity: refactor
+Metrics/ClassLength:
+  Max: 200
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+

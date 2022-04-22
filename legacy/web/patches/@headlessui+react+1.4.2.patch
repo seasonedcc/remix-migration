@@ -1,0 +1,36 @@
+diff --git a/node_modules/@headlessui/react/dist/components/dialog/dialog.esm.js b/node_modules/@headlessui/react/dist/components/dialog/dialog.esm.js
+index a61b70e..2b61233 100644
+--- a/node_modules/@headlessui/react/dist/components/dialog/dialog.esm.js
++++ b/node_modules/@headlessui/react/dist/components/dialog/dialog.esm.js
+@@ -154,6 +154,7 @@ var DialogRoot = /*#__PURE__*/forwardRefWithAs(function Dialog(props, ref) {
+     if (dialogState !== DialogStates.Open) return;
+     if (hasNestedDialogs) return;
+     if ((_internalDialogRef$cu = internalDialogRef.current) == null ? void 0 : _internalDialogRef$cu.contains(target)) return;
++    if (target.matches('.MuiAutocomplete-option')) return;
+     close();
+   }); // Handle `Escape` to close
+ 
+diff --git a/node_modules/@headlessui/react/dist/headlessui.cjs.development.js b/node_modules/@headlessui/react/dist/headlessui.cjs.development.js
+index c4ded17..0ef734f 100644
+--- a/node_modules/@headlessui/react/dist/headlessui.cjs.development.js
++++ b/node_modules/@headlessui/react/dist/headlessui.cjs.development.js
+@@ -1166,6 +1166,7 @@ var DialogRoot = /*#__PURE__*/forwardRefWithAs(function Dialog(props, ref) {
+     if (dialogState !== DialogStates.Open) return;
+     if (hasNestedDialogs) return;
+     if ((_internalDialogRef$cu = internalDialogRef.current) == null ? void 0 : _internalDialogRef$cu.contains(target)) return;
++    if (target.matches('.MuiAutocomplete-option')) return;
+     close();
+   }); // Handle `Escape` to close
+ 
+diff --git a/node_modules/@headlessui/react/dist/headlessui.umd.development.js b/node_modules/@headlessui/react/dist/headlessui.umd.development.js
+index c1a16c4..9465484 100644
+--- a/node_modules/@headlessui/react/dist/headlessui.umd.development.js
++++ b/node_modules/@headlessui/react/dist/headlessui.umd.development.js
+@@ -1164,6 +1164,7 @@
+       if (dialogState !== DialogStates.Open) return;
+       if (hasNestedDialogs) return;
+       if ((_internalDialogRef$cu = internalDialogRef.current) == null ? void 0 : _internalDialogRef$cu.contains(target)) return;
++      if (target.matches('.MuiAutocomplete-option')) return;
+       close();
+     }); // Handle `Escape` to close
+ 

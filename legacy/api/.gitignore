@@ -1,0 +1,29 @@
+/.bundle
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+/storage/*
+!/storage/.keep
+.byebug_history
+/config/master.key
+package-lock.json
+/node_modules
+.rake_tasks~
+
+# Environment variables
+.env
+.env.rspec
+.gems
+coverage/
+*.png
+*.csv
+*.txt
+.DS_Store
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
+latest.dump
+.tool-versions
+dump.rdb

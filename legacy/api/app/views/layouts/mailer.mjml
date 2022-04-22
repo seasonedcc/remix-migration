@@ -1,0 +1,66 @@
+<mjml>
+  <mj-head>
+    <mj-font name="Nunito" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" />
+    <mj-breakpoint width="600px" />
+    <mj-style>
+      .body-box-styles {
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+      }
+
+      .button-shadow {
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2),
+          0 2px 1px -1px rgba(0, 0, 0.12),
+          0 1px 1px 0 rgba(0, 0, 0, 0.14);
+        display: block;
+        width: 180px;
+        padding: 0 !important;
+        border-radius: 2px;
+        margin: auto;
+      }
+
+      .button-shadow-onboarding {
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2),
+          0 2px 1px -1px rgba(0, 0, 0.12),
+          0 1px 1px 0 rgba(0, 0, 0, 0.14);
+        display: block;
+        width: 170px;
+        padding: 0 !important;
+        border-radius: 2px;
+        margin: auto;
+      }
+
+      .evaluation-title {
+        color: rgba(0, 0, 0, 0.54);
+        padding: 25px 0px 8px 12px!important;
+      }
+
+      .evaluation-item-description {
+        padding: 16px!important;
+        border-radius: 16px;
+        height: 75px;
+        vertical-align: top;
+        border-left: 10px solid #ffffff;
+        border-right: 10px solid #ffffff;
+      }
+
+      .evaluation-item-description-bg-1 { background-color: rgb(134, 28, 28)  }
+      .evaluation-item-description-bg-2 { background-color: rgb(255, 79, 79)  }
+      .evaluation-item-description-bg-3 { background-color: rgb(244, 181, 70)  }
+      .evaluation-item-description-bg-4 { background-color: rgb(36, 193, 106)  }
+
+      @media ( max-width: 600px ) {
+        .evaluation-item-description {
+          height: auto;
+        }
+      }
+
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#FBFBFB" width="600px" css-class="mjml-body">
+    <mj-wrapper css-class="body-box-styles" background-color="#ffffff" padding="30px 40px" border-radius="3px">
+      <%= render partial: 'layouts/header' %>
+      <%= yield %>
+    </mj-wrapper>
+  </mj-body>
+</mjml>
